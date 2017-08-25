@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 # /etc/modules
-modprobe w1-gpio pullup=1
-modprobe w1-therm
+sudo modprobe w1-gpio pullup=1
+sudo modprobe w1-therm
 dtoverlay=w1-gpio,gpiopin=4 
 # 1-Wire Slave-Liste lesen
 file = open('/sys/devices/w1_bus_master1/w1_master_slaves')
