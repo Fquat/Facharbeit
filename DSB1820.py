@@ -21,3 +21,5 @@ for line in w1_slaves:
 
   # Temperatur ausgeben
   print(str(w1_slave) + ': %6.2f °C' % temperature)
+  #genau wie im pt100 script
+  
