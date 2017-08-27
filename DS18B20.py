@@ -1,9 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 # /etc/modules
-sudo modprobe w1-gpio pullup=1
-sudo modprobe w1-therm
-dtoverlay=w1-gpio,gpiopin=4 
+#sudo modprobe w1-gpio pullup=1
+#sudo modprobe w1-therm
+#dtoverlay=w1-gpio,gpiopin=4 
+#bereits in den ordner /etc/modules geladen, damit sie automatisch beim boot gestartet werden
+
 # 1-Wire Slave-Liste lesen
 file = open('/sys/devices/w1_bus_master1/w1_master_slaves')
 w1_slaves = file.readlines()
