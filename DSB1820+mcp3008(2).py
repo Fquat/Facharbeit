@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
  
 import spidev
 import time
@@ -12,6 +13,9 @@ spi.open(0,0)
 # Channel must be an integer 0-7
 def ReadChannel(channel):
   adc = spi.xfer2([1,(8+channel)<<4,0])
+  #sends 00000001 10000000 00000000 to the device.
+  #The device then sends back 3 bytes in response. 
+  #The “data=” line extracts 10 bits from that response and this represents the measurement.
   data = ((adc[1]&3) << 8) + adc[2]
   return data
  
@@ -50,12 +54,3 @@ temp_channel  = 1
 # Define delay between readings
 delay = 5
  
-while True:
- 
-  # Read the temperature sensor data
-  temp_level = ReadChannel(temp_channel)
-  temp_volts = ConvertVolts(temp_level,2)
-  temp       = ConvertTemp(temp_level,2)
- 
-  # Wait before repeating loop
-  time.sleep(delay)
