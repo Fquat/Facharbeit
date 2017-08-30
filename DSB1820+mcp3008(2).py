@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
  
 import spidev
 import time
@@ -15,8 +14,8 @@ def ReadChannel(channel):
   adc = spi.xfer2([1,(8+channel)<<4,0])
   #sends 00000001 10000000 00000000 to the device.
   #The device then sends back 3 bytes in response. 
-  #The “data=” line extracts 10 bits from that response and this represents the measurement.
   data = ((adc[1]&3) << 8) + adc[2]
+  #The “data=” line extracts 10 bits from that response and this represents the measurement
   return data
  
 # Function to convert data to voltage level,
