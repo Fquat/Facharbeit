@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 # GPIO Pins festlegen (anpassen)
 LCD_RS = 4
 LCD_E  = 17
-LCD_DATA4 = 18
+LCD_DATA2 = 18
 LCD_DATA5 = 22
 LCD_DATA6 = 23
 LCD_DATA7 = 24
@@ -29,12 +29,12 @@ def display_init():
 def lcd_write_byte(bits, mode):
 	# Pins auf LOW setzen
 	GPIO.output(LCD_RS, mode)
-	GPIO.output(LCD_DATA4, GPIO.LOW)
+	GPIO.output(LCD_DATA2, GPIO.LOW)
 	GPIO.output(LCD_DATA5, GPIO.LOW)
 	GPIO.output(LCD_DATA6, GPIO.LOW)
 	GPIO.output(LCD_DATA7, GPIO.LOW)
 	if bits & 0x10 == 0x10:
-	  GPIO.output(LCD_DATA4, GPIO.HIGH)
+	  GPIO.output(LCD_DATA2, GPIO.HIGH)
 	if bits & 0x20 == 0x20:
 	  GPIO.output(LCD_DATA5, GPIO.HIGH)
 	if bits & 0x40 == 0x40:
@@ -46,12 +46,12 @@ def lcd_write_byte(bits, mode):
 	time.sleep(E_PULSE)
 	GPIO.output(LCD_E, GPIO.LOW)  
 	time.sleep(E_DELAY)      
-	GPIO.output(LCD_DATA4, GPIO.LOW)
+	GPIO.output(LCD_DATA2, GPIO.LOW)
 	GPIO.output(LCD_DATA5, GPIO.LOW)
 	GPIO.output(LCD_DATA6, GPIO.LOW)
 	GPIO.output(LCD_DATA7, GPIO.LOW)
 	if bits&0x01==0x01:
-	  GPIO.output(LCD_DATA4, GPIO.HIGH)
+	  GPIO.output(LCD_DATA2, GPIO.HIGH)
 	if bits&0x02==0x02:
 	  GPIO.output(LCD_DATA5, GPIO.HIGH)
 	if bits&0x04==0x04:
@@ -75,7 +75,7 @@ if __name__ == '__main__':
 	GPIO.setwarnings(False)
 	GPIO.setup(LCD_E, GPIO.OUT)
 	GPIO.setup(LCD_RS, GPIO.OUT)
-	GPIO.setup(LCD_DATA4, GPIO.OUT)
+	GPIO.setup(LCD_DATA2, GPIO.OUT)
 	GPIO.setup(LCD_DATA5, GPIO.OUT)
 	GPIO.setup(LCD_DATA6, GPIO.OUT)
 	GPIO.setup(LCD_DATA7, GPIO.OUT)
