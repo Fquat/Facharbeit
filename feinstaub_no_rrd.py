@@ -1,9 +1,5 @@
-# Facharbeit
-
-
-
-#Listening 1 (Code aus der MAKE: in modifizierter Form)
 #!/bin/bash
+#Listening 1 (Code aus der MAKE: in modifizierter Form)
 WDIR=/usr/local/shellscripts/airquality
 srry -F /dev/ttyUSB0 9600 raw
 #laut Datenblatt des NOVA PM Sensors muss die Schnittstelle auf 9600 Bit/s konfiguriert werden
