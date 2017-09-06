@@ -24,3 +24,9 @@ sudo nano /etc/modules
 #diese Datei wird ebenfalls ergänzt:
 w1-gpio pullup=1
 w1-therm
+
+#Crontab
+sudo chmod -x /home/pi/Public/Facharbeit/feinstaub/feinstaub.sh
+sudo chmod -x /home/pi/Public/Facharbeit/temperatur/temperatur.py
+sudo chmod -x /home/pi/Public/Facharbeit/lcd_display.py
+#die dateien werden ausführbar gemacht, damit sie im Cronjob ausgeführt werden können
