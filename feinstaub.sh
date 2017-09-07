@@ -1,9 +1,7 @@
 #!/bin/bash
 
 WDIR=/home/pi/Public/Facharbeit/feinstaub
-
 stty -F /dev/ttyUSB0 9600 raw
-
 INPUT=$(od --endian=big -x -N10 < /dev/ttyUSB0|head -n 1|cut -f2-10 -d" ");
 
 #Ausgabe
